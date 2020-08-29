@@ -113,6 +113,7 @@ struct cuda_scatter_gather_base_kernel {
     if (index.numel() == 0) {
       return;
     }
+    at::assert_no_internal_overlap(self);
 
     dim = maybe_wrap_dim(dim, self.dim());
 
@@ -235,6 +236,7 @@ struct cuda_scatter_fill_base_kernel {
     if (index.numel() == 0) {
       return;
     }
+    at::assert_no_internal_overlap(self);
 
     dim = maybe_wrap_dim(dim, self.dim());
 
